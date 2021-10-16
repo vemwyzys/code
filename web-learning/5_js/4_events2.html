@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'helvetica neue';
+            color: #666;
+            padding: 0 20%;
+        }
+
+        li input {
+            display: none;
+        }
+
+        li.edit span {
+            display: none;
+        }
+
+        li.edit input {
+            /* initial CSS关键字将属性的初始（或默认）值应用于元素 */
+            /* display: initial; */
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Javascript Events2</h1>
+        <p>原始页面的input被隐藏,通过监听事件修改li的class来进行css修改</p>
+    </header>
+    <main>
+        <ul id="checkList">
+            <li>
+                <span>Apples span</span>
+                <input value="Apples">
+            </li>
+            <li>
+                <span>Oranges span</span>
+                <input value="Oranges">
+            </li>
+            <li>
+                <span>Bananas span</span>
+                <input value="Bananas">
+            </li>
+        </ul>
+    </main>
+
+    <script>
+        var checkList = document.getElementById("checkList");
+        var lis = checkList.querySelectorAll("li");
+        var inputs = checkList.querySelectorAll("input");
+        // console.log(lis);
+
+        for(var i=0;i<lis.length;i++){
+            // 修改class来通过css展示input元素隐藏span元素
+            lis[i].addEventListener('click',editItem);
+            //将input的元素赋值给span，并它们显示隐藏切换
+            inputs[i].addEventListener('blur',updateItem);
+            //扩展上面，增加通过回车键也可实现效果，更便捷了
+            inputs[i].addEventListener('keypress',itemKeypress);
+        }
+
+        function editItem(){
+            // console.log(this);
+            this.className='edit';
+            var input = this.querySelector('input');
+            input.focus();
+            input.setSelectionRange(0,input.value.length);
+        }
+
+        function updateItem(){
+            this.previousElementSibling.innerHTML = this.value;
+            this.parentNode.className = '';
+        }
+
+        function itemKeypress(event){
+            // console.log(event);
+            // console.log(event.which);
+            if(event.which===13){
+                updateItem.call(this);
+            }
+        }
+    </script>
+</body>
+
+</html>

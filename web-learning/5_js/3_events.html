@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Javascript Events</h1>
+    </header>
+    <main>
+        <h4>Add Numbers</h4>
+        <p>
+            <input id='num-one'> + <input id="num-two">
+        </p>
+        <p id='add-sum'></p>
+
+        <h4>Pictures</h4>
+        <ul>
+            <li><a data-img='simon-pic' id="simon" href="#">Simon</a></li>
+            <li><a data-img='bruce-pic' id="bruce" href="#">Bruce</a></li>
+            <li><a data-img='ben-pic' id="ben" href="#">ben</a></li>
+        </ul>
+
+        <img class="hide" id="simon-pic"
+            src="http://upload.wikimedia.org/wikipedia/commons/a/aa/Simon_Cowell_in_December_2011.jpg">
+        <img class="hide" id="bruce-pic"
+            src="http://upload.wikimedia.org/wikipedia/commons/0/03/Bruce_Willis_by_Gage_Skidmore.jpg">
+        <img class="hide" id="ben-pic"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Ben_Carson_by_Skidmore_with_lighting_correction.jpg/220px-Ben_Carson_by_Skidmore_with_lighting_correction.jpg"
+            alt="">
+
+    </main>
+
+
+    <script>
+        var numOne = document.getElementById('num-one');
+        var numTwo = document.getElementById('num-two');
+        var addSum = document.getElementById('add-sum');
+
+        numOne.addEventListener("click", function () {
+            // alert('hi');
+        });
+
+        // numOne.addEventListener('mouseenter',()=>alert('enter'));
+        // numOne.addEventListener('mouseleave',()=>alert('leave'));
+
+        // 焦点 失去焦点
+        // numOne.addEventListener('focus',()=>alert('focus'));
+        // numOne.addEventListener('blur',()=>alert('blur'));
+
+        function add() {
+            var one = parseFloat(numOne.value) || 0;
+            var two = parseFloat(numTwo.value) || 0;
+            // ||0    前面为null，undifined，NaN时，取后面
+            console.log(one, two);
+            addSum.innerHTML = 'your sum is: ' + (one + two);
+        }
+
+        numOne.addEventListener('input', add);
+        numTwo.addEventListener('input', add);
+
+
+
+        var simon = document.getElementById("simon");
+        var simonPic = document.getElementById("simon-pic");
+
+        var bruce = document.getElementById("bruce");
+        var brucePic = document.getElementById("bruce-pic");
+
+        var ben = document.getElementById("ben");
+        var benPic = document.getElementById("ben-pic");
+
+        function picLink1() {
+            console.log(this);
+            if (this.className === 'hide') {
+                this.className = '';
+            } else {
+                this.className = "hide";
+            }
+        };
+
+        function picLink2() {
+            var allImages = document.querySelectorAll('img');
+            for (var i = 0; i < allImages.length; i++) {
+                allImages[i].className = 'hide';
+            }
+
+            //抓取属性
+            var picId = this.attributes["data-img"].value;
+            // console.log(picId);
+            var pic = document.getElementById(picId);
+            if (pic.className === 'hide') {
+                pic.className = '';
+            } else {
+                pic.className = 'hide';
+            }
+        }
+        simon.addEventListener('click', picLink2);
+        bruce.addEventListener('click', picLink2);
+        ben.addEventListener('click', picLink2);
+    </script>
+</body>
+
+</html>

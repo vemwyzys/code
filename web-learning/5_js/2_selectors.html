@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        Javascript Selectors
+    </header>
+    <p>Parapgraph</p>
+    <p>Parapgraph .second</p>
+
+    <main>
+        <ui id="checklist">
+            <li>Apples</li>
+            <li class="done">Oranges</li>
+            <li>Bananas</li>
+            <li>Watermelon</li>
+        </ui>
+    </main>
+
+    <script>
+        document;
+        document.getElementsByClassName('done')
+        document.getElementsByClassName('done')[0]
+        document.getElementById('checklist');
+        document.querySelectorAll('p');
+        var fisrtP = document.getElementsByName('p')[0];ned
+        document.getElementsByName('p')
+        var firstPTag = document.getElementsByTagName('p')[0];
+        firstPTag.innerText = 'new paragraph content';
+        firstPTag.innerText = 'new paragraph <strong>content</strong>';
+        firstPTag.innerText = "new paragraph <strong>content</strong>";
+        var li = document.querySelector('.done');
+        li
+        li.className
+        li.className = '';
+        li.className = 'done';
+        li.className = li.className + ' special';
+        li.className = li.className.replace('special', 'also');
+        li.classList
+        li.classList.add('new');
+        li.classList;
+        li.parentElement
+        li.parentElement.children;
+    </script>
+</body>
+
+</html>

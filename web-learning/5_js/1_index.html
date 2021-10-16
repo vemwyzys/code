@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>Let's Learn Javascript!</h1>
+            <p>...cause Javascript ROCKS.</p>
+        </div>
+    </div>
+    <script>
+        /**
+        * Function
+         */
+        //piece of code that does one or more actions
+        //do not repeat yourself DRY
+        function go(name, age) {
+            alert(name);
+            alert(age);
+        }
+        // go('will',34);
+        // go('nick',100);
+        function add(first, second) {
+            return first + second;
+        }
+        add(1, 2);
+
+
+        /**
+         * Array
+         */
+        //arrays can hold anything!
+        var myList = ['apple', 'banana', 'pineapple'];
+
+        myList[3] = 'oranges';
+        myList[3] = add;
+        myList[2] = 12;
+
+        var x = myList[3](1, 2)
+
+        myList[4] = ['wll', 89];
+
+        myList.forEach(function (value, index) {
+            console.log(value, index);
+        });
+
+        //shift()  pop the first element.
+        var first = myList.shift();
+
+        //pop()    pop the last element.
+        var last = myList.pop();
+
+
+        /**
+         * loop
+         */
+        var num = 3;
+        while (num > 0) {
+            console.log('while', num);
+            num--;
+        }
+
+        do {
+            console.log('do while', num++);
+        } while (num < 3)
+
+        //  for(setup, comparison, change){}
+        for (var z = 0; z < 5; z++) {
+            console.log('for loop: ', z);
+        }
+        for (num = 0; num < myList.length; num++) {
+            console.log('myList[', num, ']', myList[num]);
+        }
+    </script>
+</body>
+
+</html>
