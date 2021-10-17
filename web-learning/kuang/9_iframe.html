@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>iframe内联框架</h2>
+    <img src="./images/内联框架.png" alt="">
+
+    <p>src:url</p>
+
+
+    <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/hMxGhHNOkCU" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+    </div>
+
+    <div>
+        <iframe src="https://www.bilibili.com" frameborder="0"
+        width="800" height="200"></iframe>
+    </div>
+
+
+    <div>
+        <p>a与iframe联动！</p>
+        <p>通过a标签给iframe里面加东西</p>
+        <a href="https://www.bilibili.com" target="bilibili">点击给iframe添加东西</a>
+        <iframe src="bilibili" frameborder="0" name="bilibili"></iframe>
+    </div>
+</body>
+
+</html>

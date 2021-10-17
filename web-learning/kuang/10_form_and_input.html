@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>表单form</h2>
+    <img src="./images/表单.png" alt="">
+    <img src="./images/表单元素格式.png" alt="">
+    <!-- input type text  输入框 -->
+    <form action="result.html" method="post">
+        <p>name: <input type="text" name="name"></p>
+        <p>password: <input type="password" name="password"></p>
+        <p>
+            <input type="submit" name="button">
+            <input type="reset" name="button">
+        </p>
+    </form>
+
+    <!-- get提交会拼接到url后 不安全-->
+    <form action="result.html" method="get">
+        <p>name: <input type="text" name="name"></p>
+        <p>password: <input type="password" name="password"></p>
+        <p>
+            <input type="submit" name="button">
+            <input type="reset" name="button">
+        </p>
+    </form>
+
+    <!-- 单选框与多选框 -->
+    <p>单选框(需要指定name分为一组才能单选)
+        <input type="radio" name="gender" checked>man被默认选中
+        <input type="radio" name="gender">woman
+    </p>
+
+    <p>多选框
+        <input type="checkbox" value="sleep" name="hobby">a
+        <input type="checkbox" value="sleep" name="hobby">b
+        <input type="checkbox" value="sleep" name="hobby" checked>c被默认选中
+    </p>
+
+    <!-- 按钮 -->
+    <p>按钮
+        <input type="button" name="btn1" value="press">
+    </p>
+
+    <p>图片按钮
+        <input type="image" src="./images/链接标签.png" size="10px">
+    </p>
+
+    <!-- 下拉框 -->
+    <p>下拉框
+        <select name="list" id="list">
+            <option value="china">china</option>
+            <option value="german">german</option>
+            <option value="usa" selected>usa被默认选择</option>
+        </select>
+    </p>
+
+    <!-- 文本域 -->
+    <p>反馈
+        <textarea name="textarea" id="textarea" cols="30" rows="10">
+            文本内容
+        </textarea>
+    </p>
+
+    <!-- 文件域 -->
+    <p>文件域
+        <input type="file" name="files">
+    </p>
+
+    <!-- 邮件验证 -->
+    <p>邮箱：
+        <input type="email" name="email">
+    </p>
+
+    <!-- url验证 -->
+    <p>url：
+        <input type="url" name="url">
+    </p>
+
+    <!-- 数字验证 -->
+    <p>数字：
+        <input type="number" name="number" max="100" min="10" step="10">
+    </p>
+
+
+    <!-- 滑块 -->
+    <p>滑块
+        <input type="range" name="voice" max="100" min="10" step=10>
+    </p>
+
+
+    <!-- 搜索框 -->
+    <p>搜索框
+        <input type="search" name="search">
+    </p>
+</body>
+
+</html>

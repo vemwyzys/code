@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>表单初级验证</h2>
+    <p>placeholder required pattern</p>
+
+    <form action="result.html" method="get">
+        <p>name:
+            <input type="text" placeholder="please input your name">
+        </p>
+
+        <p>password:
+            <input type="password" required placeholder="this is required">
+        </p>
+
+        <!-- https://www.jb51.net/tools/regex.htm -->
+        <p>自定义邮箱：
+            <input type="mail" name="mail" pattern="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+        </p>
+
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>
