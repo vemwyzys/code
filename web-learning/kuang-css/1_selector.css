@@ -1,0 +1,64 @@
+/* 标签选择器 */
+/* 选择所有标签 */
+h1{
+    color: red;
+}
+
+/* 类选择器 */
+.clasName{
+    color:red;
+}
+
+/* id选择器 */
+#idName{
+    color:red;
+}
+
+/* 选择器优先顺序：id>class>tag */
+
+/* --------------层次选择器------------------ */
+
+
+/* 层次选择器 */
+/* 1.后代选择器 (代代相传)*/
+body p{
+    color:red;
+}
+/* 2.子选择器 (只选一代，只到子)*/
+body>p{
+    color:red;
+}
+/* 3.相邻兄弟选择器 (后面一个同辈)*/
+.clasName + p{
+    color:red;
+}
+/* 4.通用兄弟选择器 （后面所有同辈）*/
+.clasName ~p{
+    color:red;
+}
+
+
+/* ---------------伪类选择器------------------ */
+/* 伪类：条件，结构 */
+ul li:first-child{
+    color:red;
+}
+
+ul li:last-child{
+    color:red;
+}
+/* p的父节点的第n个child，且p为这个child才生效*/
+p:nth-child(0){
+    color:red;
+}
+/* 选择父元素下的当前元素（p）的第n个 */
+p:nth-of-type(2){
+    color:red;
+}
+a:hover{
+    color: red;
+}
+
+/* ----------------属性选择器--------------- */
+
+/* 属性选择器 */
