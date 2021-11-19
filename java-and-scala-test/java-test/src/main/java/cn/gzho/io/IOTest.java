@@ -3,9 +3,14 @@ package cn.gzho.io;
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class IOTest {
 
@@ -47,6 +52,46 @@ public class IOTest {
             num++;
         }
         System.out.println(num);
+    }
+
+    @Test
+    public void testZip() throws IOException {
+        try (
+                InputStream resourceAsStream = IOTest.class.getClassLoader().getResourceAsStream("aa.zip");
+        ) {
+            byte[] bytes = new byte[1024];
+            int read;
+            while ((read = resourceAsStream.read(bytes)) != -1) {
+                for (int i = 0; i < read; i++) {
+                    System.out.println(bytes[i] + " " + (char) bytes[i]);
+                }
+            }
+        }
+
+
+        try (
+                InputStream resourceAsStream = IOTest.class.getClassLoader().getResourceAsStream("aa.zip");
+                ZipInputStream zip = new ZipInputStream(resourceAsStream);
+        ) {
+            byte[] bytes = new byte[1024];
+            int read;
+            ZipEntry entry = null;
+            while ((entry = zip.getNextEntry()) != null) {
+                String entryName = entry.getName();
+                if (!entry.isDirectory()) {
+                    while ((read = zip.read(bytes,0,bytes.length)) != -1) {
+                        for (int i = 0; i < read; i++) {
+                            System.out.println(bytes[i] + " " + (char) bytes[i]);
+                        }
+                    }
+                }
+            }
+            while (zip.read(bytes, 0, bytes.length) != -1) {
+                Charset charset = Charset.defaultCharset();
+                CharBuffer cb = charset.decode(ByteBuffer.wrap(bytes));
+                System.out.println(cb);
+            }
+        }
     }
 
     public static void main(String[] args) {

@@ -18,5 +18,6 @@ public class RawBean {
 
         String json = new ObjectMapper().writeValueAsString(bean);
         System.out.println(json);
+        new ObjectMapper().readValue()
     }
 }
