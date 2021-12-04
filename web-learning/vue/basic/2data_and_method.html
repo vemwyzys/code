@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id='app1'>
+        <p>{{a}}</p>
+    </div>
+
+    <div id="component-demo">
+        <button-counter></button-counter>
+    </div>
+
+    <div id="component-blog-post">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
+
+    <div id="component-blog-post2">
+        <blog-post2 v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post2>
+    </div>
+
+    <script>
+        var data = { a: 1 }
+        var vm = new Vue({
+            el: '#app1',
+            data: data
+        });
+
+        Vue.component('button-counter', {
+            //组件的data必须是函数，每个实例则可以单独维护一个拷贝
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">you click me {{count}} times.</button>'
+        });
+        new Vue({ el: '#component-demo' });
+
+        Vue.component('blog-post', {
+            //使用props接受外部参数
+            props: ['title'],
+            template: '<div><h3>{{title}}</h3><button v-on:click="clickfun"></button></div>',
+            methods: {
+                clickfun: function () {
+                    this.title = this.title + '1';
+                }
+            }
+        })
+        new Vue({ el: '#component-blog-post' });
+
+        Vue.component('blog-post2', {
+            //使用props接受外部参数
+            props: ['title'],
+            template: '<div><h3>{{title}}</h3></div>',
+        })
+        new Vue({
+            el: '#component-blog-post2',
+            data: {
+                posts: [
+                    { id: 1, title: 'My journey with vue' },
+                    { id: 2, title: 'My journey with java' }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>
