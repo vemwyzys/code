@@ -35,7 +35,7 @@ anotherAge();
 Math.max.apply(null, [3, 5, 4]);
 Math.max.call(null, 3, 5, 4);
 
-//装饰器
+// 装饰器
 var parseIntCount = 0;
 var oldParseIntparseInt; //保留原函数
 window.parseInt = function () {
