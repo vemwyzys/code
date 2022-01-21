@@ -68,3 +68,4 @@ function Person(age){
 }
 // sayName()函数相同
 console.log(new Person().sayName===new Person().sayName);
+//test cherrypcik
