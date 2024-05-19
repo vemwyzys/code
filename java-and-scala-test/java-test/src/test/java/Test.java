@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author gzho
  * @version 1.0.0
@@ -5,7 +8,7 @@
  */
 public class Test {
     public static void main(String[] args) {
-       // Integer.MIN_VALUE;
+        // Integer.MIN_VALUE;
     }
 
     // 归并排序
@@ -101,4 +104,27 @@ public class Test {
             }
         }
     }
+
+    public static List<Integer> mergeArrays(int[] arr1, int[] arr2) {
+        List<Integer> mergedList = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
+                mergedList.add(arr1[i]);
+                i++;
+            } else {
+                mergedList.add(arr2[j]);
+                j++;
+            }
+        }
+        while (i < arr1.length) {
+            mergedList.add(arr1[i]);
+        }
+        while (j < arr2.length) {
+            mergedList.add(arr2[j]);
+        }
+        return mergedList;
+    }
+
 }
